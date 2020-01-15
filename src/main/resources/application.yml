@@ -9,7 +9,7 @@ swagger2:
   enable: true
 mybatis:
   mapper-locations: classpath:mapperxml/*.xml
-  type-aliases-package: com.robin.reactmarket.model
+  type-aliases-package: com.robin.usedbookmarketbackend.model
 server:
   servlet:
     session:

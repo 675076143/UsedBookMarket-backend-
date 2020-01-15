@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.robin.usedbookmarketbackend.mapper.OrdersubMapper">
+  <resultMap id="BaseResultMap" type="com.robin.usedbookmarketbackend.model.Ordersub">
+    <!--@mbg.generated-->
+    <!--@Table ordersub-->
+    <id column="orderSubID" jdbcType="INTEGER" property="ordersubid" />
+    <result column="orderID" jdbcType="INTEGER" property="orderid" />
+    <result column="bookName" jdbcType="INTEGER" property="bookname" />
+    <result column="orderNum" jdbcType="INTEGER" property="ordernum" />
+    <result column="price" jdbcType="DECIMAL" property="price" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    orderSubID, orderID, bookName, orderNum, price
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from ordersub
+    where orderSubID = #{ordersubid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from ordersub
+    where orderSubID = #{ordersubid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.robin.usedbookmarketbackend.model.Ordersub">
+    <!--@mbg.generated-->
+    insert into ordersub (orderSubID, orderID, bookName, 
+      orderNum, price)
+    values (#{ordersubid,jdbcType=INTEGER}, #{orderid,jdbcType=INTEGER}, #{bookname,jdbcType=INTEGER}, 
+      #{ordernum,jdbcType=INTEGER}, #{price,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.robin.usedbookmarketbackend.model.Ordersub">
+    <!--@mbg.generated-->
+    insert into ordersub
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ordersubid != null">
+        orderSubID,
+      </if>
+      <if test="orderid != null">
+        orderID,
+      </if>
+      <if test="bookname != null">
+        bookName,
+      </if>
+      <if test="ordernum != null">
+        orderNum,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ordersubid != null">
+        #{ordersubid,jdbcType=INTEGER},
+      </if>
+      <if test="orderid != null">
+        #{orderid,jdbcType=INTEGER},
+      </if>
+      <if test="bookname != null">
+        #{bookname,jdbcType=INTEGER},
+      </if>
+      <if test="ordernum != null">
+        #{ordernum,jdbcType=INTEGER},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.robin.usedbookmarketbackend.model.Ordersub">
+    <!--@mbg.generated-->
+    update ordersub
+    <set>
+      <if test="orderid != null">
+        orderID = #{orderid,jdbcType=INTEGER},
+      </if>
+      <if test="bookname != null">
+        bookName = #{bookname,jdbcType=INTEGER},
+      </if>
+      <if test="ordernum != null">
+        orderNum = #{ordernum,jdbcType=INTEGER},
+      </if>
+      <if test="price != null">
+        price = #{price,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where orderSubID = #{ordersubid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.robin.usedbookmarketbackend.model.Ordersub">
+    <!--@mbg.generated-->
+    update ordersub
+    set orderID = #{orderid,jdbcType=INTEGER},
+      bookName = #{bookname,jdbcType=INTEGER},
+      orderNum = #{ordernum,jdbcType=INTEGER},
+      price = #{price,jdbcType=DECIMAL}
+    where orderSubID = #{ordersubid,jdbcType=INTEGER}
+  </update>
+</mapper>

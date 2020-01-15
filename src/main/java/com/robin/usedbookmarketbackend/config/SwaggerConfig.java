@@ -24,14 +24,14 @@ public class SwaggerConfig {
                 .enable(swagger2Enable)
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.robin.reactmarket.controller"))  // 注意修改此处的包名
+                .apis(RequestHandlerSelectors.basePackage("com.robin.usedbookmarketbackend.controller"))  // 注意修改此处的包名
                 .paths(PathSelectors.any())
                 .build();
     }
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("react-market")
+                .title("Used Book Market")
                 .description("API接口文档")
                 .version("1.0")
                 .build();

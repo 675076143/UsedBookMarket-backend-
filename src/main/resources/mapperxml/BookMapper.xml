@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.robin.usedbookmarketbackend.mapper.BookMapper">
+  <resultMap id="BaseResultMap" type="com.robin.usedbookmarketbackend.model.Book">
+    <!--@mbg.generated-->
+    <!--@Table book-->
+    <id column="bookID" jdbcType="INTEGER" property="bookid" />
+    <result column="bookName" jdbcType="VARCHAR" property="bookname" />
+    <result column="bookDesc" jdbcType="VARCHAR" property="bookdesc" />
+    <result column="price" jdbcType="DECIMAL" property="price" />
+    <result column="topCategoryID" jdbcType="INTEGER" property="topcategoryid" />
+    <result column="detail" jdbcType="VARCHAR" property="detail" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="image" jdbcType="VARCHAR" property="image" />
+    <result column="userID" jdbcType="INTEGER" property="userid" />
+    <result column="bookStock" jdbcType="INTEGER" property="bookstock" />
+    <result column="soldNum" jdbcType="INTEGER" property="soldnum" />
+    <result column="stackingTime" jdbcType="TIMESTAMP" property="stackingtime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    bookID, bookName, bookDesc, price, topCategoryID, detail, `status`, image, userID, 
+    bookStock, soldNum, stackingTime
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from book
+    where bookID = #{bookid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from book
+    where bookID = #{bookid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="bookID" keyProperty="bookid" parameterType="com.robin.usedbookmarketbackend.model.Book" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into book (bookName, bookDesc, price, 
+      topCategoryID, detail, `status`, 
+      image, userID, bookStock, 
+      soldNum, stackingTime)
+    values (#{bookname,jdbcType=VARCHAR}, #{bookdesc,jdbcType=VARCHAR}, #{price,jdbcType=DECIMAL}, 
+      #{topcategoryid,jdbcType=INTEGER}, #{detail,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, 
+      #{image,jdbcType=VARCHAR}, #{userid,jdbcType=INTEGER}, #{bookstock,jdbcType=INTEGER}, 
+      #{soldnum,jdbcType=INTEGER}, #{stackingtime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyColumn="bookID" keyProperty="bookid" parameterType="com.robin.usedbookmarketbackend.model.Book" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into book
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="bookname != null">
+        bookName,
+      </if>
+      <if test="bookdesc != null">
+        bookDesc,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="topcategoryid != null">
+        topCategoryID,
+      </if>
+      <if test="detail != null">
+        detail,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+      <if test="image != null">
+        image,
+      </if>
+      <if test="userid != null">
+        userID,
+      </if>
+      <if test="bookstock != null">
+        bookStock,
+      </if>
+      <if test="soldnum != null">
+        soldNum,
+      </if>
+      <if test="stackingtime != null">
+        stackingTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="bookname != null">
+        #{bookname,jdbcType=VARCHAR},
+      </if>
+      <if test="bookdesc != null">
+        #{bookdesc,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="topcategoryid != null">
+        #{topcategoryid,jdbcType=INTEGER},
+      </if>
+      <if test="detail != null">
+        #{detail,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="image != null">
+        #{image,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="bookstock != null">
+        #{bookstock,jdbcType=INTEGER},
+      </if>
+      <if test="soldnum != null">
+        #{soldnum,jdbcType=INTEGER},
+      </if>
+      <if test="stackingtime != null">
+        #{stackingtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.robin.usedbookmarketbackend.model.Book">
+    <!--@mbg.generated-->
+    update book
+    <set>
+      <if test="bookname != null">
+        bookName = #{bookname,jdbcType=VARCHAR},
+      </if>
+      <if test="bookdesc != null">
+        bookDesc = #{bookdesc,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        price = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="topcategoryid != null">
+        topCategoryID = #{topcategoryid,jdbcType=INTEGER},
+      </if>
+      <if test="detail != null">
+        detail = #{detail,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        `status` = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="image != null">
+        image = #{image,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null">
+        userID = #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="bookstock != null">
+        bookStock = #{bookstock,jdbcType=INTEGER},
+      </if>
+      <if test="soldnum != null">
+        soldNum = #{soldnum,jdbcType=INTEGER},
+      </if>
+      <if test="stackingtime != null">
+        stackingTime = #{stackingtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where bookID = #{bookid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.robin.usedbookmarketbackend.model.Book">
+    <!--@mbg.generated-->
+    update book
+    set bookName = #{bookname,jdbcType=VARCHAR},
+      bookDesc = #{bookdesc,jdbcType=VARCHAR},
+      price = #{price,jdbcType=DECIMAL},
+      topCategoryID = #{topcategoryid,jdbcType=INTEGER},
+      detail = #{detail,jdbcType=VARCHAR},
+      `status` = #{status,jdbcType=INTEGER},
+      image = #{image,jdbcType=VARCHAR},
+      userID = #{userid,jdbcType=INTEGER},
+      bookStock = #{bookstock,jdbcType=INTEGER},
+      soldNum = #{soldnum,jdbcType=INTEGER},
+      stackingTime = #{stackingtime,jdbcType=TIMESTAMP}
+    where bookID = #{bookid,jdbcType=INTEGER}
+  </update>
+</mapper>

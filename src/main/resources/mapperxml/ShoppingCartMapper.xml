@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.robin.usedbookmarketbackend.mapper.ShoppingCartMapper">
+  <resultMap id="BaseResultMap" type="com.robin.usedbookmarketbackend.model.ShoppingCart">
+    <!--@mbg.generated-->
+    <!--@Table shopping_cart-->
+    <id column="shoppingCartID" jdbcType="INTEGER" property="shoppingcartid" />
+    <result column="userID" jdbcType="INTEGER" property="userid" />
+    <result column="bookID" jdbcType="INTEGER" property="bookid" />
+    <result column="purchaseNum" jdbcType="INTEGER" property="purchasenum" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    shoppingCartID, userID, bookID, purchaseNum
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from shopping_cart
+    where shoppingCartID = #{shoppingcartid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from shopping_cart
+    where shoppingCartID = #{shoppingcartid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.robin.usedbookmarketbackend.model.ShoppingCart">
+    <!--@mbg.generated-->
+    insert into shopping_cart (shoppingCartID, userID, bookID, 
+      purchaseNum)
+    values (#{shoppingcartid,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}, #{bookid,jdbcType=INTEGER}, 
+      #{purchasenum,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.robin.usedbookmarketbackend.model.ShoppingCart">
+    <!--@mbg.generated-->
+    insert into shopping_cart
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="shoppingcartid != null">
+        shoppingCartID,
+      </if>
+      <if test="userid != null">
+        userID,
+      </if>
+      <if test="bookid != null">
+        bookID,
+      </if>
+      <if test="purchasenum != null">
+        purchaseNum,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="shoppingcartid != null">
+        #{shoppingcartid,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="bookid != null">
+        #{bookid,jdbcType=INTEGER},
+      </if>
+      <if test="purchasenum != null">
+        #{purchasenum,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.robin.usedbookmarketbackend.model.ShoppingCart">
+    <!--@mbg.generated-->
+    update shopping_cart
+    <set>
+      <if test="userid != null">
+        userID = #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="bookid != null">
+        bookID = #{bookid,jdbcType=INTEGER},
+      </if>
+      <if test="purchasenum != null">
+        purchaseNum = #{purchasenum,jdbcType=INTEGER},
+      </if>
+    </set>
+    where shoppingCartID = #{shoppingcartid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.robin.usedbookmarketbackend.model.ShoppingCart">
+    <!--@mbg.generated-->
+    update shopping_cart
+    set userID = #{userid,jdbcType=INTEGER},
+      bookID = #{bookid,jdbcType=INTEGER},
+      purchaseNum = #{purchasenum,jdbcType=INTEGER}
+    where shoppingCartID = #{shoppingcartid,jdbcType=INTEGER}
+  </update>
+</mapper>

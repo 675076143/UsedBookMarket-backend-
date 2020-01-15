@@ -1,8 +1,8 @@
 package com.robin.usedbookmarketbackend.config;
 
-import com.robin.reactmarket.model.User;
-import com.robin.reactmarket.service.UserRoleService;
-import com.robin.reactmarket.service.UserService;
+import com.robin.usedbookmarketbackend.model.User;
+import com.robin.usedbookmarketbackend.service.UserRoleService;
+import com.robin.usedbookmarketbackend.service.UserService;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
@@ -23,7 +23,7 @@ public class ShiroRealm extends AuthorizingRealm {
         User user = (User)principals.getPrimaryPrincipal();
         SimpleAuthorizationInfo simpleAuthorizationInfo = new SimpleAuthorizationInfo();
         //角色设置
-        simpleAuthorizationInfo.setRoles(userRoleService.getUserRoleByUserId(user.getUserID()));
+        simpleAuthorizationInfo.setRoles(userRoleService.getUserRoleByUserId(user.getUserid()));
         //权限设置
         //simpleAuthorizationInfo.setStringPermissions();
         return simpleAuthorizationInfo;
@@ -37,7 +37,7 @@ public class ShiroRealm extends AuthorizingRealm {
         User user = userService.getUserByUserName(userName);
         if(user == null){//找不到用户
             throw new UnknownAccountException();
-        }else if(user.getUserState() == 0){//用户状态0,表示禁用
+        }else if(user.getUserstate() == 0){//用户状态0,表示禁用
             throw new DisabledAccountException();
         }else {//Shiro认证
             SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(
