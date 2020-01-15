@@ -1,10 +1,11 @@
 package com.robin.usedbookmarketbackend.mapper;
 
 import com.robin.usedbookmarketbackend.model.Role;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
-
+@Mapper
 public interface RoleMapper {
     int deleteByPrimaryKey(Integer roleid);
 

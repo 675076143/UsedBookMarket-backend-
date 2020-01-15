@@ -1,7 +1,9 @@
 package com.robin.usedbookmarketbackend.mapper;
 
 import com.robin.usedbookmarketbackend.model.Order;
+import org.apache.ibatis.annotations.Mapper;
 
+@Mapper
 public interface OrderMapper {
     int deleteByPrimaryKey(Integer orderid);
 
