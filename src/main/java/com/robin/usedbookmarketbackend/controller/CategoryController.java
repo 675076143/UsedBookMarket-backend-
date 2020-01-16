@@ -3,12 +3,14 @@ package com.robin.usedbookmarketbackend.controller;
 import com.robin.usedbookmarketbackend.config.Response;
 import com.robin.usedbookmarketbackend.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+@CrossOrigin
 @RestController
-@RequestMapping("/categoryController")
+@RequestMapping("/api")
 public class CategoryController {
     @Autowired
     private CategoryService categoryService;

@@ -44,7 +44,7 @@ public class ShiroConfig {
         fillterMap.put("/swagger-resources/**","anon");
         fillterMap.put("/v2/**","anon");
         //登陆前禁用这些端口
-        fillterMap.put("/**","authc");
+//        fillterMap.put("/**","authc");
         shiroFilterFactoryBean.setFilterChainDefinitionMap(fillterMap);
         return shiroFilterFactoryBean;
     }

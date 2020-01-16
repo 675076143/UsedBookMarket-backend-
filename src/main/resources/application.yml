@@ -14,7 +14,7 @@ server:
   servlet:
     session:
       timeout: 10s
-
+  port: 9000
 upload:
-  file-path: D:/Documents/usedbookmarket-upload/
+  file-path: C:\Users\Administrator\Desktop\usedbookmarket\upload
   file-url: http://localhost:8080/

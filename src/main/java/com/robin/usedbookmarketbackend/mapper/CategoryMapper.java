@@ -21,5 +21,4 @@ public interface CategoryMapper {
 
     List<String> findCategoryname();
 
-
 }

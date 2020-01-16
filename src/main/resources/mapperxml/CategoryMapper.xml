@@ -64,4 +64,5 @@
     select categoryName
     from category
   </select>
+
 </mapper>

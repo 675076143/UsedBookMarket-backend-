@@ -2,9 +2,13 @@ package com.robin.usedbookmarketbackend.model;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Book {
     /**
      * 书籍ID
@@ -20,7 +24,7 @@ public class Book {
 
     private BigDecimal price;
 
-    private Integer topcategoryid;
+    private Integer categoryid;
 
     private String detail;
 

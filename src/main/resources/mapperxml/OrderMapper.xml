@@ -6,10 +6,12 @@
     <!--@Table order-->
     <id column="orderID" jdbcType="INTEGER" property="orderid" />
     <result column="userID" jdbcType="INTEGER" property="userid" />
+    <result column="orderTime" jdbcType="TIMESTAMP" property="ordertime" />
+    <result column="totalPrice" jdbcType="DECIMAL" property="totalprice" />
   </resultMap>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
-    orderID, userID
+    orderID, userID, orderTime, totalPrice
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     <!--@mbg.generated-->
@@ -25,8 +27,10 @@
   </delete>
   <insert id="insert" parameterType="com.robin.usedbookmarketbackend.model.Order">
     <!--@mbg.generated-->
-    insert into order (orderID, userID)
-    values (#{orderid,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER})
+    insert into order (orderID, userID, orderTime, 
+      totalPrice)
+    values (#{orderid,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}, #{ordertime,jdbcType=TIMESTAMP}, 
+      #{totalprice,jdbcType=DECIMAL})
   </insert>
   <insert id="insertSelective" parameterType="com.robin.usedbookmarketbackend.model.Order">
     <!--@mbg.generated-->
@@ -38,6 +42,12 @@
       <if test="userid != null">
         userID,
       </if>
+      <if test="ordertime != null">
+        orderTime,
+      </if>
+      <if test="totalprice != null">
+        totalPrice,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="orderid != null">
@@ -45,6 +55,12 @@
       </if>
       <if test="userid != null">
         #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="ordertime != null">
+        #{ordertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="totalprice != null">
+        #{totalprice,jdbcType=DECIMAL},
       </if>
     </trim>
   </insert>
@@ -55,13 +71,21 @@
       <if test="userid != null">
         userID = #{userid,jdbcType=INTEGER},
       </if>
+      <if test="ordertime != null">
+        orderTime = #{ordertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="totalprice != null">
+        totalPrice = #{totalprice,jdbcType=DECIMAL},
+      </if>
     </set>
     where orderID = #{orderid,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.robin.usedbookmarketbackend.model.Order">
     <!--@mbg.generated-->
     update order
-    set userID = #{userid,jdbcType=INTEGER}
+    set userID = #{userid,jdbcType=INTEGER},
+      orderTime = #{ordertime,jdbcType=TIMESTAMP},
+      totalPrice = #{totalprice,jdbcType=DECIMAL}
     where orderID = #{orderid,jdbcType=INTEGER}
   </update>
 </mapper>
